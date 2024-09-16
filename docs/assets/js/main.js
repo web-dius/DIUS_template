@@ -15,90 +15,96 @@ __webpack_require__.r(__webpack_exports__);
 
 function getburgerMenu() {
     //   ---------------------------------------Бургер меню------------------------------------
-    jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-btn').click(function() {
+    jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-btn').click(function () {
         jquery__WEBPACK_IMPORTED_MODULE_0__(this).toggleClass('active');
         jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav').toggleClass('active');
-        jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-link').click(function() { 
+        jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-link').click(function () {
             jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav').removeClass('active');
-            jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-btn').removeClass('active');  
+            jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-btn').removeClass('active');
         });
     })
 
 
-// -------------------------------------------------стрелка для меню---------------------------
-function arrowMenu() {
+    // -------------------------------------------------стрелка для меню---------------------------
+    function arrowMenu() {
 
-    let menuItem = jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-item');
+        let menuItem = jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-nav-item');
 
-    menuItem.each(function (inf, valf) {
-        let el = valf.lastElementChild;
-        if (el.classList == 'spoiler-content-menu') {
-            valf.insertAdjacentHTML("beforeend", `
+        menuItem.each(function (inf, valf) {
+            let el = valf.lastElementChild;
+            if (el.classList == 'spoiler-content-menu') {
+                valf.insertAdjacentHTML("beforeend", `
             <btn class='_spoiler-js-menu'>
             <svg width="10" height="10" viewBox="0 0 52 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.20711 1.70711L25.2929 25.7929C25.6834 26.1834 26.3166 26.1834 26.7071 25.7929L50.7929 1.70711C51.4229 1.07714 50.9767 1.57952e-06 50.0858 1.57952e-06H1.91422C1.02331 1.57952e-06 0.577144 1.07714 1.20711 1.70711Z" fill="black"/>
             </svg>
             </btn>
             `);
-        }
-    })
-}
-arrowMenu();
-
-
-// ----------------------------------------------------спойлеры в меню-----------------------------
-function spoilerMenu() {
-    //скорость анимации
-    let timeAnimation = 300;
-    //режим аккордеона
-    let accordion = false;
-    //Первый спойлер активный
-    let firstOpen = false;
-
-    jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp();
-    //Первый спойлер активный
-    if (firstOpen) {
-        jquery__WEBPACK_IMPORTED_MODULE_0__('details').first().attr("open", "");
-        jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').first().slideDown(timeAnimation);
-
+            }
+        })
     }
+    arrowMenu();
 
-    jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').click(function (e) {
+
+    // ----------------------------------------------------спойлеры в меню-----------------------------
+    function spoilerMenu() {
+        //скорость анимации
+        let timeAnimation = 300;
         //режим аккордеона
-        if (accordion) {
-            if (jquery__WEBPACK_IMPORTED_MODULE_0__(this).attr('class') == '_spoiler-js-menu active') {
-                jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation);
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).removeClass('active');
-            } else {
-                jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation).css("display", "none");
-                jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').removeClass('active');
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).siblings('.spoiler-content-menu').slideDown(timeAnimation);
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).addClass('active');
-            }
+        let accordion = false;
+        //Первый спойлер активный
+        let firstOpen = false;
 
+        jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp();
+        //Первый спойлер активный
+        if (firstOpen) {
+            jquery__WEBPACK_IMPORTED_MODULE_0__('details').first().attr("open", "");
+            jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').first().slideDown(timeAnimation);
 
-            //основной режим    
-        } else {
-
-            if (jquery__WEBPACK_IMPORTED_MODULE_0__(this).attr('class') == '_spoiler-js-menu active') {
-                let spoiler = jquery__WEBPACK_IMPORTED_MODULE_0__(this).parent();
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).removeClass('active');
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).siblings('.spoiler-content-menu').slideUp(timeAnimation);
-
-
-            } else {
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).siblings('.spoiler-content-menu').slideDown(timeAnimation);
-                jquery__WEBPACK_IMPORTED_MODULE_0__(this).addClass('active');
-            }
         }
-    });
-    // ===========закрытие спойлеров при закрытии меню===============
-    jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-menu-exit').click(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation).css("display", "none");
-        jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').removeClass('active');
-    });
-}
+
+        jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').click(function (e) {
+            //режим аккордеона
+            if (accordion) {
+                if (jquery__WEBPACK_IMPORTED_MODULE_0__(this).attr('class') == '_spoiler-js-menu active') {
+                    jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation);
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).removeClass('active');
+                } else {
+                    jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation).css("display", "none");
+                    jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').removeClass('active');
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).siblings('.spoiler-content-menu').slideDown(timeAnimation);
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).addClass('active');
+                }
+
+
+                //основной режим    
+            } else {
+
+                if (jquery__WEBPACK_IMPORTED_MODULE_0__(this).attr('class') == '_spoiler-js-menu active') {
+                    let spoiler = jquery__WEBPACK_IMPORTED_MODULE_0__(this).parent();
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).removeClass('active');
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).siblings('.spoiler-content-menu').slideUp(timeAnimation);
+
+
+                } else {
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).siblings('.spoiler-content-menu').slideDown(timeAnimation);
+                    jquery__WEBPACK_IMPORTED_MODULE_0__(this).addClass('active');
+                }
+            }
+        });
+        // ===========закрытие спойлеров при закрытии меню===============
+        jquery__WEBPACK_IMPORTED_MODULE_0__('.mob-menu-exit').click(function () {
+            jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation).css("display", "none");
+            jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').removeClass('active');
+        });
+    }
     spoilerMenu();
+
+    // --------выход из меню-------------
+    jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-exit").on("click", function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-nav-btn").removeClass("active")
+        jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-nav").removeClass("active")
+    })
 }
 
 
@@ -106,7 +112,7 @@ getburgerMenu()
 
 
 
-    
+
 
 
 
