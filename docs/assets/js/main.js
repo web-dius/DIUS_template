@@ -97,14 +97,18 @@ function getburgerMenu() {
             jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation).css("display", "none");
             jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').removeClass('active');
         });
+
+        // --------выход из меню(частный случай)-------------
+        jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-exit").on("click", function () {
+            jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-nav-btn").removeClass("active")
+            jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-nav").removeClass("active")
+            jquery__WEBPACK_IMPORTED_MODULE_0__('.spoiler-content-menu').slideUp(timeAnimation).css("display", "none");
+            jquery__WEBPACK_IMPORTED_MODULE_0__('._spoiler-js-menu').removeClass('active');
+        })
     }
     spoilerMenu();
 
-    // --------выход из меню-------------
-    jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-exit").on("click", function () {
-        jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-nav-btn").removeClass("active")
-        jquery__WEBPACK_IMPORTED_MODULE_0__(".mob-nav").removeClass("active")
-    })
+
 }
 
 
